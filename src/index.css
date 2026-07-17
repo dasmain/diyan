@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #030014;
+  --color-deep-navy: #0b0d2b;
+  --color-nebula: #7c3aed;
+  --color-indigo-glow: #6366f1;
+  --color-cyan-accent: #22d3ee;
+  --color-teal-accent: #2eb9df;
+  --color-soft-white: #e2e8f0;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-orbit: "Orbitron", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-void);
+  color: var(--color-soft-white);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-cyan-accent) 35%, transparent);
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-cyan-accent);
+  outline-offset: 3px;
+}
+
+.glass-panel {
+  background: color-mix(in srgb, white 4%, transparent);
+  border: 1px solid color-mix(in srgb, white 10%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.nebula-glow {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, color-mix(in srgb, var(--color-nebula) 25%, transparent), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 50%, color-mix(in srgb, var(--color-indigo-glow) 12%, transparent), transparent),
+    radial-gradient(ellipse 50% 30% at 20% 80%, color-mix(in srgb, var(--color-cyan-accent) 8%, transparent), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
