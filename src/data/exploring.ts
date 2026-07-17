@@ -2,7 +2,6 @@ export type ExploringItem = {
   title: string;
   description: string;
   icon: "Brain" | "FileCode";
-  linkKey?: "httpQueryRfc";
 };
 
 export const EXPLORING: ExploringItem[] = [

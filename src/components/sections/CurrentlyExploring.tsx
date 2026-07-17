@@ -1,10 +1,9 @@
 "use client";
 
 import { EXPLORING } from "@/data/exploring";
-import { LINKS } from "@/data/links";
 import { useAnimeScope } from "@/hooks/useAnimeScope";
 import { animate, stagger } from "animejs";
-import { Brain, ExternalLink, FileCode } from "lucide-react";
+import { Brain, FileCode } from "lucide-react";
 
 const ICONS = {
   Brain,
@@ -36,7 +35,6 @@ export function CurrentlyExploring() {
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {EXPLORING.map((item) => {
             const Icon = ICONS[item.icon];
-            const href = item.linkKey ? LINKS[item.linkKey] : "";
             return (
               <article
                 key={item.title}
@@ -54,16 +52,6 @@ export function CurrentlyExploring() {
                     <p className="mt-2 text-sm leading-relaxed text-soft-white/65">
                       {item.description}
                     </p>
-                    {href ? (
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-3 inline-flex items-center gap-1 text-xs text-cyan-accent hover:underline"
-                      >
-                        Learn more <ExternalLink className="h-3 w-3" />
-                      </a>
-                    ) : null}
                   </div>
                 </div>
               </article>
